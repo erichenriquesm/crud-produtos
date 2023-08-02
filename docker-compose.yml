@@ -9,6 +9,17 @@ services:
       - "8000:8000"
     depends_on:
       - db
+    volumes:
+      - .:/var/www
+    restart: unless-stopped
+
+  composer:
+    image: composer:latest
+    container_name: composer
+    volumes:
+      - .:/var/www/
+    working_dir: /var/www
+    command: composer install
 
   db:
     image: mysql:latest

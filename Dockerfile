@@ -1,5 +1,5 @@
 # Use a imagem oficial do PHP com a última versão
-FROM php:latest
+FROM php:8.2.5
 
 # Instale as dependências necessárias
 RUN apt-get update && apt-get install -y \
@@ -14,6 +14,12 @@ RUN apt-get update && apt-get install -y \
 
 # Instale extensões PHP necessárias
 RUN docker-php-ext-install zip gd pdo pdo_mysql mysqli
+
+
+# Instale o inotify-tools
+RUN apt-get update && apt-get install -y inotify-tools
+
+# Exponha a porta 80 para ac
 
 # Instale o Composer globalmente
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
