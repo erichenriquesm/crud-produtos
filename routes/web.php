@@ -27,4 +27,4 @@ $router->get('/testar-conexao', function () {
     } catch (\Exception $e) {
         return response()->json(['error' => 'Erro ao conectar ao banco de dados: ' . $e->getMessage()], 500);
     }
-});
+}); 
