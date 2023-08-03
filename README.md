@@ -13,3 +13,8 @@ PRIMEIROS PASSO
 - para pegar o caminho relativo use o pwd
 
 - copiar migrations da imagem para a pasta local do projeto docker cp idcontainer:/var/www/database/migrations caminho relativo/crud-produtos/database
+
+ESTÁ DISPONÍVEL:
+ - phpmyadmin (porta 8080)
+ - servidor do lumen (porta 8000)
+ - mysql  (porta 3307)
