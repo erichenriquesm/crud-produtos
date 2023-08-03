@@ -1,6 +1,6 @@
 # CRUD DE PRODUTOS
 
-#PRIMEIROS PASSO
+PRIMEIROS PASSO
 
 - rodar o comando docker-compose up
 
