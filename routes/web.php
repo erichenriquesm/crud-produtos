@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 /*
@@ -15,4 +16,15 @@
 
 $router->get('/', function () use ($router) {
     return $router->app->version();
+});
+
+
+// Rota para testar a conexão com o banco de dados
+$router->get('/testar-conexao', function () {
+    try {
+        DB::connection()->getPdo();
+        return response()->json(['message' => 'Conexão com o banco de dados bem-sucedida!']);
+    } catch (\Exception $e) {
+        return response()->json(['error' => 'Erro ao conectar ao banco de dados: ' . $e->getMessage()], 500);
+    }
 });
