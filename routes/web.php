@@ -20,6 +20,7 @@ $router->get('/', function () use ($router) {
 
 
 // Rota para testar a conexão com o banco de dados
+
 $router->get('/testar-conexao', function () {
     try {
         DB::connection()->getPdo();
