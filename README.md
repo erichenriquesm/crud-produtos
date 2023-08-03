@@ -12,7 +12,7 @@ PRIMEIROS PASSO
 
 - para pegar o caminho relativo use o pwd no terminal
 
-- copiar migrations da imagem para a pasta local do projeto docker cp idcontainer:/var/www/database/migrations caminho relativo/crud-produtos/database
+- copiar migrations da imagem para a pasta local do projeto docker cp idcontainer:/var/www/database/migrations caminho relativo/database
 
 ESTÁ DISPONÍVEL:
  - phpmyadmin (porta 8080)
