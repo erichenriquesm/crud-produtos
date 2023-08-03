@@ -4,7 +4,7 @@ PRIMEIROS PASSO
 
 - rodar o comando docker-compose up
 
-- rodar o comando docker images
+- rodar o comando docker images para pegar o id da imagem 
 
 - iniciar uma imagem da aplicação com php run -it id da imagem /bin/bash
 
