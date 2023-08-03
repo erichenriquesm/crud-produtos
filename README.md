@@ -8,9 +8,9 @@ PRIMEIROS PASSO
 
 - iniciar uma imagem da aplicação com php run -it id da imagem /bin/bash
 
-- próxima vez que ser necessário acessar a imagem para rodar comando nativos rode o comando php exec -it id da imagem /bin/bash 
+- próxima vez que ser necessário acessar a imagem para rodar comando nativos, rode o comando php exec -it id da imagem /bin/bash 
 
-- para pegar o caminho relativo use o pwd
+- para pegar o caminho relativo use o pwd no terminal
 
 - copiar migrations da imagem para a pasta local do projeto docker cp idcontainer:/var/www/database/migrations caminho relativo/crud-produtos/database
 
