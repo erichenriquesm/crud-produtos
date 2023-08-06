@@ -9,6 +9,5 @@ PRIMEIROS PASSOS
 - para rodar a imagem use docker exec -it id da imagem crud-produtos_web /bin/bash 
 
 ESTÁ DISPONÍVEL:
- - phpmyadmin (porta 8080)
- - servidor do lumen (porta 8000)
- - mysql  (porta 3307)
+ - phpmyadmin (http://localhost:8080)
+ - servidor do lumen (http://localhost:8000)
