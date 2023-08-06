@@ -1,20 +1,19 @@
 # Use a imagem oficial do PHP com a última versão
-FROM php:8.2.5
+FROM php:8.2.5-fpm
 
 # Instale as dependências necessárias
 RUN apt-get update && apt-get install -y \
-    libzip-dev \
-    zip \
-    unzip \
     libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
-    libpq-dev \
-    libxml2-dev
+    zip \
+    unzip \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd pdo pdo_mysql
+
 
 # Instale extensões PHP necessárias
-RUN docker-php-ext-install zip gd pdo pdo_mysql mysqli
-
+RUN docker-php-ext-install pdo pdo_mysql mysqli
 
 # Instale o inotify-tools
 RUN apt-get update && apt-get install -y inotify-tools
