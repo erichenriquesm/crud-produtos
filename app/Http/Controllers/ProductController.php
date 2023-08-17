@@ -13,8 +13,26 @@ class ProductController extends Controller
      * @return void
      */
 
+
+     public function list(Request $request){
+        return response()->json(Product::paginate($request->input('per_page')));
+     }
+
      public function create(Request $request){
-        return Product::create($request->all());
+        $this->validate($request, [
+            'name' => 'required|string',
+            'value' => 'required|integer',
+            'description' => 'string'
+        ]);
+
+        $product = Product::create([
+            'name' => $request->input('name'),
+            'value' => $request->input('value'),
+            'description' => $request->input('description')
+        ]);
+
+
+        return response()->json(["message" => "Product created", "product" => $product], 200);
      }
 
     //
