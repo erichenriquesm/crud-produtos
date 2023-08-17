@@ -6,7 +6,7 @@ PRIMEIROS PASSOS
 
 - rodar o comando docker ps para pegar o id da imagem "crud-produtos-web" 
 
-- para rodar a imagem use docker exec -it id da imagem crud-produtos-web /bin/bash 
+- para rodar a imagem use: docker exec -it "id da imagem" crud-produtos-web /bin/bash 
 
 ESTÁ DISPONÍVEL:
  - phpmyadmin (http://localhost:8080)
