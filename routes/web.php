@@ -19,4 +19,7 @@ $router->get('/', function () use ($router) {
 });
 $router->group(['prefix' => 'product'], function () use ($router) {
     $router->post('', 'ProductController@create');
+    $router->get('', 'ProductController@list');
+    $router->get('all', 'ProductController@all');
+    $router->get('{id}', 'ProductController@index');
 });
