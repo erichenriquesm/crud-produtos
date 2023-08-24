@@ -18,12 +18,22 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->group(['prefix' => 'product'], function () use($router){
-    $router->post('', 'ProductController@create');
-    $router->get('all', 'ProductController@all');
-    $router->get('', 'ProductController@list');
-    $router->get('{id}', 'ProductController@index');
-    $router->put('{id}', 'ProductController@update');
-    $router->delete('{id}', 'ProductController@delete');
+$router->group(['prefix' => 'api', 'middleware' => "auth"], function () use($router){
+    $router->group(['prefix' => 'product'], function () use($router){
+        $router->post('', 'ProductController@create');
+        $router->get('all', 'ProductController@all');
+        $router->get('', 'ProductController@list');
+        $router->get('{id}', 'ProductController@index');
+        $router->put('{id}', 'ProductController@update');
+        $router->delete('{id}', 'ProductController@delete');
+    });
 });
+
+
+$router->group(['prefix' => 'api'], function () use($router){
+    $router->group(['prefix' => 'user'], function () use($router){
+        $router->post('register', 'UserController@register');
+    });
+});
+
 
