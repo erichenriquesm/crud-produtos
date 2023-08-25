@@ -22,4 +22,16 @@ $router->group(['prefix' => 'product'], function () use ($router) {
     $router->get('', 'ProductController@list');
     $router->get('all', 'ProductController@all');
     $router->get('{id}', 'ProductController@index');
+    $router->put('{id}', 'ProductController@update');
+    $router->delete('{id}', 'ProductController@delete');
 });
+
+$router->group(['prefix' => 'user'], function () use ($router) {
+    $router->post('', 'UserController@create');
+    $router->get('', 'UserController@list');
+    $router->get('all', 'UserController@all');
+    $router->get('{id}', 'UserController@index');
+    $router->put('{id}', 'UserController@update');
+    $router->delete('{id}', 'UserController@delete');
+});
+

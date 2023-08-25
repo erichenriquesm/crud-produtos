@@ -14,22 +14,25 @@ class ProductController extends Controller
      * @return void
      */
 
-     public function all(){
+    public function all()
+    {
         return response()->json(Product::all());
-     }
+    }
 
-     public function index($id){
+    public function index($id)
+    {
         return Product::find($id);
-     }
+    }
 
-     public function list(Request $request){
+    public function list(Request $request){
         return response()->json(Product::paginate($request->input('per_page')));
-     }
-    
+    }
 
-     public function create(Request $request){
 
-        $this->validate($request, [
+    public function create(Request $request)
+    {
+
+        $this->validate($request, [ //1
             'name' => 'required|string',
             'value' => 'required|integer',
             'description' => 'string'
@@ -37,12 +40,36 @@ class ProductController extends Controller
 
         $product = Product::create([
             'name' => $request->input('name'),
-            'value' => $request->input('value'),
+            'value' => $request->input('value'), //2
             'description' => $request->input('description'),
         ]);
 
-        return response()->json(["message" => "Product created!", "product" => $product], 200);
-     }
+        return response()->json(["message" => "Product created!", "product" => $product], 200); //3
+    }
+
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [ //1
+            'name' => 'string',
+            'value' => 'integer',
+            'description' => 'string'
+        ]);
+
+        $product = Product::findOrFail($id)->fill($request->all());
+        $product->update();
+
+        return response()->json(['message' => 'Product updated', 'product' => $product], 200); 
+    }
+
+
+    public function delete($id)
+    {
+        Product::findOrFail($id)->delete();
+        return response()->json(['message' => 'Product deleted'], 200); 
+    }
+
+
 
     //
 }
