@@ -31,9 +31,8 @@ $router->group(['prefix' => 'api', 'middleware' => "auth"], function () use($rou
 
 
 $router->group(['prefix' => 'api'], function () use($router){
-    $router->group(['prefix' => 'user'], function () use($router){
         $router->post('register', 'UserController@register');
-    });
+        $router->post('login', 'UserController@login');
 });
 
 
