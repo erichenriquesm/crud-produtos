@@ -14,8 +14,7 @@ class ProductController extends Controller
     */
 
 
-   public function all()
-   {
+   public function all(){
       return response()->json(Product::all(), 200);
    }
 
@@ -26,12 +25,11 @@ class ProductController extends Controller
 
    public function create(Request $request)
    {
-      $this->validate($request, [
+      $this->validate($request, [ //
          'name' => 'required|string',
          'value' => 'required|integer',
          'description' => 'string'
       ]);
-
 
       $product = Product::create([
          'name' => $request->input('name'),
@@ -50,8 +48,7 @@ class ProductController extends Controller
          'description' => 'string'
       ]);
 
-      $product = Product::findOrFail($id);
-      $product->fill($request->all())->update();
+      $product = Product::findOrFail($id)->fill($request->all())->update();
       return response()->json(["message" => "Product updated!", "product" => $product], 200);
    }
 

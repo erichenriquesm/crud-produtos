@@ -20,4 +20,9 @@ class Product extends Model
      *
      * @var string[]
      */
+
+
+     public function Usuarios(){
+        return $this->belongsToMany(User::class, UserProduct::class, 'id', 'user_id');
+     }
 }
