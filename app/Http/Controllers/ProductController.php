@@ -16,7 +16,7 @@ class ProductController extends Controller
    
     public function index($id)
     {
-      $product = Product::where('name', '=', $id)->first();
+      $product = Product::where('id', '=', $id)->first();
       return response()->json($product);
     }
 
@@ -24,14 +24,13 @@ class ProductController extends Controller
    {
       return response()->json(Product::paginate($request->input('per_page') ?? 15));
    }
-
+   
    public function all()
    {
       return response()->json(Product::all());
    }
 
-   public function create(Request $request)
-   {
+   public function create(Request $request){
 
       $this->validate($request, [
          'name' => 'required|string|unique:products',
@@ -67,8 +66,8 @@ class ProductController extends Controller
 
    public function delete($id)
    {
-      $product = Product::findOrFail($id)->delete();
+      Product::findOrFail($id)->delete();
 
-      return response()->json(['message' => 'Product deleted!', 'product' => $product]);
+      return response()->json(['message' => 'Product deleted!']);
    }
 }

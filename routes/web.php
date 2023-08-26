@@ -18,7 +18,7 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->group(['prefix' => 'product'], function () use($router){
+$router->group(['prefix' => 'product', 'middleware' => "teste"], function () use($router){
     $router->post('', 'ProductController@create');
     $router->get('all', 'ProductController@all');
     $router->get('', 'ProductController@list');
