@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Product;
+use App\Observer\ProductObserver;
 use Laravel\Lumen\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
@@ -22,6 +24,15 @@ class EventServiceProvider extends ServiceProvider
      *
      * @return bool
      */
+
+
+     public function boot(){
+        parent::boot();
+        Product::observe(ProductObserver::class);
+     }
+
+
+
     public function shouldDiscoverEvents()
     {
         return false;

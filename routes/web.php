@@ -17,3 +17,14 @@ use Illuminate\Support\Facades\DB;
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+
+$router->group(['prefix' => 'api', 'middleware' => 'teste'], function () use($router){
+    $router->group(['prefix' => 'product'], function () use($router){
+        $router->post('/', 'ProductController@store');
+        $router->get('/', 'ProductController@list');
+        $router->get('/{id}', 'ProductController@index');
+        $router->put('/{id}', 'ProductController@update');
+        $router->delete('/{id}', 'ProductController@delete');
+    });
+});
