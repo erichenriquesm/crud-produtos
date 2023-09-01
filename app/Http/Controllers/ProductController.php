@@ -46,7 +46,8 @@ class ProductController extends Controller
         $product = $this->product->create([
             'name' => $request->input('name'),
             'value' =>$request->input('value'),
-            'description' => $request->input('description')
+            'description' => $request->input('description'),
+            'image' => $request->input('image'),
         ]);
 
         return response()->json(['message' => 'Product created!', 'product' => $product]);

@@ -19,7 +19,7 @@ $router->get('/', function () use ($router) {
 });
 
 
-$router->group(['prefix' => 'api', 'middleware' => 'teste'], function () use($router){
+$router->group(['prefix' => 'api'], function () use($router){
     $router->group(['prefix' => 'product'], function () use($router){
         $router->post('/', 'ProductController@store');
         $router->get('/', 'ProductController@list');
